@@ -8,21 +8,23 @@ public class Apartament {
     private Date dataCumparare;
     private Double dimensiune;
     private Boolean balcon;
+    private Integer nrCamere;
     private Integer nrBai;
     private List<String> camere = new ArrayList<>();
     //private List<String> test = Arrays.asList("test", "test2");
-    private Map<String, Boolean> utilitatiPeCamera;
+    private Map<String, List<String>> utilitatiPeCamera;
 
     public Apartament () {}
 
-    public Apartament(Tip tip, Integer nr, Double pret, Date dataCumparare, Double dimensiune, Boolean balcon,
-                      Integer nrBai, List<String> camere, Map<String, Boolean> utilitatiPeCamera) {
+    public Apartament(Tip tip, Integer nr, Double pret, Date dataCumparare, Double dimensiune, Boolean balcon, Integer nrCamere,
+                      Integer nrBai, List<String> camere, Map<String, List<String>> utilitatiPeCamera) {
         this.tip = tip;
         this.nr = nr;
         this.pret = pret;
         this.dataCumparare = dataCumparare;
         this.dimensiune = dimensiune;
         this.balcon = balcon;
+        this.nrCamere = nrCamere;
         this.nrBai = nrBai;
         this.camere = camere;
         this.utilitatiPeCamera = utilitatiPeCamera;
@@ -80,23 +82,44 @@ public class Apartament {
         return nrBai;
     }
 
+    public Integer getNrCamere() {
+        return nrCamere;
+    }
+
+    public void setNrCamere(Integer nrCamere) {
+        this.nrCamere = nrCamere;
+    }
+
     public void setNrBai(Integer nrBai) {
         this.nrBai = nrBai;
     }
 
-    public List<String> getCamera() {
+    public List<String> getCamere() {
         return camere;
     }
 
-    public void setCamera(List<String> camere) {
+    public void setCamere(List<String> camere) {
         this.camere = camere;
     }
 
-    public Map<String, Boolean> getUtilitatiPeCamera() {
+    public Map<String, List<String>> getUtilitatiPeCamera() {
         return utilitatiPeCamera;
     }
 
-    public void setUtilitatiPeCamera(Map<String, Boolean> utilitatiPeCamera) {
+    public void setUtilitatiPeCamera(Map<String, List<String>> utilitatiPeCamera) {
         this.utilitatiPeCamera = utilitatiPeCamera;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Apartament that = (Apartament) o;
+        return tip == that.tip && Objects.equals(nr, that.nr) && Objects.equals(pret, that.pret) && Objects.equals(dataCumparare, that.dataCumparare) && Objects.equals(dimensiune, that.dimensiune) && Objects.equals(balcon, that.balcon) && Objects.equals(nrCamere, that.nrCamere) && Objects.equals(nrBai, that.nrBai) && Objects.equals(camere, that.camere) && Objects.equals(utilitatiPeCamera, that.utilitatiPeCamera);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(tip, nr, pret, dataCumparare, dimensiune, balcon, nrCamere, nrBai, camere, utilitatiPeCamera);
     }
 }
