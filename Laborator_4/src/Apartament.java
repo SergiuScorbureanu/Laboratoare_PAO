@@ -122,4 +122,20 @@ public class Apartament {
     public int hashCode() {
         return Objects.hash(tip, nr, pret, dataCumparare, dimensiune, balcon, nrCamere, nrBai, camere, utilitatiPeCamera);
     }
+
+    @Override
+    public String toString() {
+        return "Apartament{" +
+                "tip=" + tip +
+                ", nr=" + nr +
+                ", pret=" + pret +
+                ", dataCumparare=" + dataCumparare +
+                ", dimensiune=" + dimensiune +
+                ", balcon=" + balcon +
+                ", nrCamere=" + nrCamere +
+                ", nrBai=" + nrBai +
+                ", camere=" + camere +
+                ", utilitatiPeCamera=" + utilitatiPeCamera +
+                '}';
+    }
 }
